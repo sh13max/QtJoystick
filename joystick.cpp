@@ -1,14 +1,13 @@
 #include "joystick.h"
 
-#include <QDebug>
-
 Joystick::Joystick(QQuickItem* parent) : QQuickPaintedItem(parent) {
     value = QPointF(0,0);
     outOfBounds = false;
-    setAcceptTouchEvents(true);
-    setAcceptedMouseButtons(Qt::AllButtons);
+    setAcceptTouchEvents(true); //Add touch event listeners
+    setAcceptedMouseButtons(Qt::AllButtons); //Add all mouse event listeners
 }
 
+// Render
 void Joystick::paint(QPainter *painter) {
     painter->setPen(QPen(QBrush(color),borderWidth));
     painter->setBrush(background);
@@ -26,6 +25,7 @@ qreal Joystick::getValueX() const {return value.x();}
 qreal Joystick::getValueY() const {return value.y();}
 QPointF Joystick::getValue() const {return value;}
 
+// Background property
 QColor Joystick::getBackground() const {return background;}
 void Joystick::setBackground(QColor background) {
     if (this->background == background)
@@ -35,6 +35,7 @@ void Joystick::setBackground(QColor background) {
     emit backgroundChanged(this->background);
 }
 
+// Border & handle color property
 QColor Joystick::getColor() const {return color;}
 void Joystick::setColor(QColor color) {
     if (this->color == color)
@@ -44,6 +45,7 @@ void Joystick::setColor(QColor color) {
     emit colorChanged(this->color);
 }
 
+// Border width property
 qreal Joystick::getBorderWith() const {return this->borderWidth;}
 void Joystick::setBorderWidth(qreal borderWidth) {
     if (qFuzzyCompare(this->borderWidth, borderWidth))
@@ -53,6 +55,7 @@ void Joystick::setBorderWidth(qreal borderWidth) {
     emit borderWidthChanged(this->borderWidth);
 }
 
+// Events
 void Joystick::mousePressEvent(QMouseEvent *event) {
     event->accept();
     startMousePosition = event->localPos();
