@@ -15,7 +15,11 @@ Window{
     width: 640;
     height: 480;
     title: qsTr("Joystick");
+    Text{
+        text: "x:" + joystick.valueX + "\ny:" + joystick.valueY;
+    }
 	Joystick{
+	    id: joystick
 	    width: 50 * Screen.logicalPixelDensity;
 	    height: 50 * Screen.logicalPixelDensity;
 	    color: "#000000";
