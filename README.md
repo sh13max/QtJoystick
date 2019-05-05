@@ -1,5 +1,5 @@
 # QtJoystick
-Joystick
+Qt/C++ Joystick
 
 ##Regitration in QML Engine
 ```C++
@@ -9,8 +9,9 @@ qmlRegisterType<Joystick>("SomeModuleName", 1, 0, "Joystick");
 ##Using in QML
 ```QML
 import SomeModuleName 1.0
+
 Window{
-	visible: true;
+    visible: true;
     width: 640;
     height: 480;
     title: qsTr("Joystick");
