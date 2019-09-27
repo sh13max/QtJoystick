@@ -1,12 +1,12 @@
 # QtJoystick
 Qt/C++ Joystick
 
-##Regitration in QML Engine
+## Regitration in QML Engine
 ```C++
 qmlRegisterType<Joystick>("SomeModuleName", 1, 0, "Joystick");
 ```
 
-##Using in QML
+## Using in QML
 ```QML
 import SomeModuleName 1.0
 
